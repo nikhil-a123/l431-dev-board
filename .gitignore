@@ -1,0 +1,13 @@
+# Vagrant directory
+.vagrant/
+
+# Include makefiles
+!Makefile
+*~
+
+CMakeFiles
+
+TouchGFX/build
+build/
+.vscode/settings.json
+build/config.h

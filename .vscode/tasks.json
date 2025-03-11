@@ -1,0 +1,90 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Flash STM32 with Debug FW",
+			"type": "shell",
+			"command": "cubeprog --connect port=SWD reset=SWrst -d ./build/Debug/l431-dev-board.elf -g 0x08000000",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			}
+		},
+		{
+			"label": "Flash STM32 with Release FW",
+			"type": "shell",
+			"command": "cubeprog --connect port=SWD reset=SWrst -d ./build/Release/l431-dev-board.elf -g 0x08000000",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			}
+		},
+		{
+            "label": "Ceedling create module",
+            "type": "shell",
+            "command": "ceedling",
+            "args": [
+                "module:create[${input:ModuleType:value}${input:ModuleName}]"
+            ]
+        },
+        {
+            "label": "Ceedling list collected tests",
+            "type": "shell",
+            "command": "ceedling",
+            "args": [
+                "${input:TestOption:value}"
+            ]
+        },
+        {
+            "label": "Ceedling run all tests",
+            "type": "shell",
+            "command": "ceedling test:all"
+        }
+	],
+	"inputs": [
+        {
+            "id": "ModuleName",
+            "description": "Name of the module to create",
+            "type": "promptString",
+            "default": "DummyModule",
+        },
+        {
+            "id": "ModuleType",
+            "description": "Option to select either a library module or application module",
+            "type": "pickString",
+            "options": [
+                {
+                    "label": "App",
+                    "value": "App:"
+                },
+                {
+                    "label": "Lib",
+                    "value": "Lib:"
+                }
+            ]
+        },
+        {
+            "id": "TestOption",
+            "description": "List the collected test files or test paths",
+            "type": "pickString",
+            "options": [
+                {
+                    "label": "Files",
+                    "value": "files:test"
+                },
+                {
+                    "label": "Paths",
+                    "value": "paths:test"
+                }
+            ]
+        },
+    ]
+}

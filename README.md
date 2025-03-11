@@ -12,8 +12,10 @@ The board is designed by VCC-GND Studio, and features:
   * QuadSPI peripheral
   * SDMMC peripheral
 * 2 headers to break out connections to the MCU
+* RTC battery connection routed to the header
 * 8MHz and 32.768KHz external oscillators for HSE and LSE clock sources
 * USB-C socket for power supply only (L431 doesn't support USB)
+* Unpopulated header for USART ()
 * Header for external battery
 * Switch to select the power source (USB, external battery, external 3V3 source)
 * MicroSD Card slot connected to MCU SDMMC interface
@@ -22,3 +24,7 @@ The board is designed by VCC-GND Studio, and features:
 * User switch connected to PB3 GPIO
 * Power LED and User LED
 * SWD header for debugging
+
+## Notes
+
+* SD Card slot has "SDIO_SW" connected to PA8, possibly some kind of SD card detection signal?

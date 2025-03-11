@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Debug STM32 with ST-Link",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/Debug/l431-dev-board.elf",
+            "showDevDebugOutput": "raw",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "stlink",
+            "device": "STM32L431",
+                        "interface": "swd",
+                        "runToEntryPoint": "main",
+            "svdFile": "/opt/CubeCLT/STMicroelectronics_CMSIS_SVD/STM32L431.svd",
+            "serverpath": "/opt/CubeCLT/STLink-gdb-server/bin/ST-LINK_gdbserver",
+            "stm32cubeprogrammer": "/opt/CubeCLT/STM32CubeProgrammer/bin",
+        }
+    ]
+}
